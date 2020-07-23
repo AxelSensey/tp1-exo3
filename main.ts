@@ -12,7 +12,7 @@ basic.forever(function () {
     led.plotBrightness(x2, y2, 167)
     led.plot(x3, y3)
     led.plotBrightness(x3, y3, 58)
-    basic.pause(500)
+    basic.pause(200)
     led.unplot(x3, y3)
     led.unplot(x2, y2)
     led.unplot(x, y)
@@ -30,8 +30,40 @@ basic.forever(function () {
     }
     y3 += 1
     if (y3 > 4) {
-        led.unplot(x, y3)
+        led.unplot(x3, y3)
         y3 = 0
         x3 = x
+    }
+    if (x == 3) {
+        let k = 0
+        let z = 0
+        led.plot(z, k)
+        led.plotBrightness(x, y, 255)
+        led.plot(x2, y2)
+        led.plotBrightness(x2, y2, 167)
+        led.plot(x3, y3)
+        led.plotBrightness(x3, y3, 58)
+        basic.pause(200)
+        led.unplot(x3, y3)
+        led.unplot(x2, y2)
+        led.unplot(x, y)
+        y += direction
+        if (y > 4) {
+            led.unplot(x, y)
+            y = 0
+            x = randint(0, 4)
+        }
+        y2 += 1
+        if (y2 > 4) {
+            led.unplot(x2, y2)
+            y2 = 0
+            x2 = x
+        }
+        y3 += 1
+        if (y3 > 4) {
+            led.unplot(x3, y3)
+            y3 = 0
+            x3 = x
+        }
     }
 })
